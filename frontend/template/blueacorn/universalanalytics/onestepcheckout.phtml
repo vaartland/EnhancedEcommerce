@@ -45,13 +45,16 @@
 		ga('send', 'event', 'Checkout', 'Option');
             }
 
-	    if (this.currentStep == 'shipping_method') {
-		ga('ec:setAction', 'checkout_option', {
-		    'step': this.steps.indexOf(this.currentStep)+1,
-		    'option': $(shippingMethod.form).select('input[name="shipping_method"][checked]')[0].value
-                });
-		ga('send', 'event', 'Checkout', 'Option');
-            }
+        if (this.currentStep == 'shipping_method') {
+            shippingMethodOption = $(shippingMethod.form).select('input[name="shipping_method"][checked]')[0];
+            shippingMethodOption = (typeof shippingMethodOption == 'undefined') ? null : shippingMethodOption[0].value;
+
+            ga('ec:setAction', 'checkout_option', {
+                'step': this.steps.indexOf(this.currentStep)+1,
+                'option': shippingMethodOption
+            });
+            ga('send', 'event', 'Checkout', 'Option');
+        }
 
 
             ga('ec:setAction','checkout', {'step': this.steps.indexOf(section)+1, 'label': section });
