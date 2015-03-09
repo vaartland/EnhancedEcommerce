@@ -36,8 +36,9 @@
         */
         checkout.gotoSectionparent = checkout.gotoSection;
         checkout.gotoSection = function(section, reloadProgressBlock) {
+            var stepForward = this.steps.indexOf(this.currentStep) < this.steps.indexOf(section);
 
-	    if (this.currentStep == 'login') {
+	    if (stepForward && this.currentStep == 'login') {
 		ga('ec:setAction', 'checkout_option', {
 		    'step': this.steps.indexOf(this.currentStep)+1,
 		    'option': this.method
@@ -45,7 +46,7 @@
 		ga('send', 'event', 'Checkout', 'Option');
             }
 
-	    if (this.currentStep == 'shipping_method') {
+	    if (stepForward && this.currentStep == 'shipping_method') {
 		ga('ec:setAction', 'checkout_option', {
 		    'step': this.steps.indexOf(this.currentStep)+1,
 		    'option': $(shippingMethod.form).select('input[name="shipping_method"][checked]')[0].value
@@ -53,8 +54,9 @@
 		ga('send', 'event', 'Checkout', 'Option');
             }
 
-
-            ga('ec:setAction','checkout', {'step': this.steps.indexOf(section)+1, 'label': section });
+            if (stepForward) {
+                ga('ec:setAction','checkout', {'step': this.steps.indexOf(section)+1, 'label': section });
+            }
             <?php foreach($productArray as $product) : ?>
                 <?php echo $product; ?>
             <?php endforeach; ?>
