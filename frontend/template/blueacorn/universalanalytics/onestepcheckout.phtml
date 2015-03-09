@@ -47,7 +47,7 @@
 
             if (this.currentStep == 'shipping_method') {
                 shippingMethodOption = $(shippingMethod.form).select('input[name="shipping_method"][checked]')[0];
-                shippingMethodOption = (typeof shippingMethodOption == 'undefined') ? null : shippingMethodOption[0].value;
+                shippingMethodOption = (typeof shippingMethodOption == 'undefined') ? null : shippingMethodOption.value;
 
                 ga('ec:setAction', 'checkout_option', {
                     'step': this.steps.indexOf(this.currentStep)+1,
