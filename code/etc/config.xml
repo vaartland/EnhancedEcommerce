@@ -85,7 +85,7 @@
             </settings>
             <translation>
                 <addImpression>
-                    <id>entity_id</id>
+                    <id>sku</id>
                     <name>name</name>
                     <brand>manufacturer</brand>
                     <category>category_collection</category>
@@ -103,7 +103,7 @@
                     <name>name</name>
                 </addPromo>
                 <addProduct>
-                    <id>entity_id</id>
+                    <id>sku</id>
                     <name>name</name>
                     <category>category_collection</category>
                     <brand>manufacturer</brand>
@@ -149,7 +149,7 @@
                     <product_type>product_type</product_type>
                 </capturetransactionitems>
                 <transaction>
-                    <entity_id>id</entity_id>
+                    <increment_id>id</increment_id>
                     <store_name>affiliation</store_name>
                     <base_grand_total>revenue</base_grand_total>
                     <tax_amount>tax</tax_amount>
