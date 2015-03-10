@@ -38,6 +38,23 @@ class BlueAcorn_UniversalAnalytics_Model_Observer extends Mage_Core_Model_Observ
     }
     
     /**
+     * Before main entry point when loading a product collection.
+     * Ensures attributes are added to the collection.
+     *
+     * @name viewProductCollection
+     * @param observer $observer
+     */
+    public function viewProductBeforeCollection($observer) {
+        // Lock down this function in order to prevent infinite
+        // recursion loops
+        if ($this->lockObserver('collection')) return;
+
+        $observer->getCollection()->addAttributeToSelect('sku');
+
+        $this->unlockObserver('collection');
+    }
+
+    /**
      * Main entry point when loading a product collection. Generates a
      * $listName and then passes the products to the monitor to be
      * added as product impressions.
