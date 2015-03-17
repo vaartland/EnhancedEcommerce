@@ -36,6 +36,16 @@
 		</observers>
 	    </catalog_product_load_after>
 
+	    <catalog_product_collection_load_before>
+		<observers>
+		    <baua>
+			<type>model</type>
+			<class>baua/observer</class>
+			<method>viewProductBeforeCollection</method>
+		    </baua>
+		</observers>
+	    </catalog_product_collection_load_before>
+
 	    <catalog_product_collection_load_after>
 		<observers>
 		    <baua>
