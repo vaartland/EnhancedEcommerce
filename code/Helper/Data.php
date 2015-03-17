@@ -8,7 +8,7 @@ class BlueAcorn_UniversalAnalytics_Helper_Data extends Mage_Core_Helper_Abstract
 
     public function generateProductImpressions() {
         $monitor = Mage::getSingleton('baua/monitor');
-        
+
         return $monitor->generateProductImpressions();
     }
 
@@ -43,6 +43,12 @@ class BlueAcorn_UniversalAnalytics_Helper_Data extends Mage_Core_Helper_Abstract
         preg_match('/Resource_(.*)_Collection/', get_class($collectionObject), $listName);
         if (is_array($listName) && count($listName) >= 2) {
             $listName = str_replace('_', ' ', $listName[1]);
+        }
+
+        // This is a fallback/default listname for the cases where we
+        // are unable to derive a useful listname from the class
+        if ($listName == null || $listName == '') {
+            $listName = 'default';
         }
 
         return $listName;
