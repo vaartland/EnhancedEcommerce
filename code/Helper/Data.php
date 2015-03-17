@@ -8,7 +8,7 @@ class BlueAcorn_UniversalAnalytics_Helper_Data extends Mage_Core_Helper_Abstract
 
     public function generateProductImpressions() {
         $monitor = Mage::getSingleton('baua/monitor');
-        
+
         return $monitor->generateProductImpressions();
     }
 
@@ -36,6 +36,48 @@ class BlueAcorn_UniversalAnalytics_Helper_Data extends Mage_Core_Helper_Abstract
         return $monitor->getAction();
     }
 
+
+    /**
+     * Takes any number of arguments for translations and builds a
+     * list of all attributes for the supplied translations
+     *
+     * @name getTranslationAttributes
+     * @param string $translation
+     * @return Array
+     */
+    public function getTranslationAttributes($translation) {
+        $params = func_get_args();
+        $attributeList = Array();
+
+        foreach ($params as $translation) {
+            $translationList = $this->getTranslation($translation);
+            $translationList = $this->flattenArray($translationList);
+            $attributeList = array_merge($attributeList, $translationList);
+        }
+
+        return array_unique($attributeList);
+    }
+
+    /**
+     * Merges nested array elements into the parent array
+     *
+     * @name flattenArray
+     * @param Array $inputArray
+     * @return Array
+     */
+    public function flattenArray($inputArray) {
+        $outputArray = Array();
+
+        foreach ($inputArray as $element) {
+            if (is_array($element)) {
+                $outputArray = array_merge($outputArray, array_keys($element));
+            } else {
+                $outputArray[] = $element;
+            }
+        }
+
+        return $outputArray;
+    }
 
     public function getCollectionListName($collectionObject) {
         $listName = null;
