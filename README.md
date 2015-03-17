@@ -1,6 +1,22 @@
-# UniversalAnalytics
-A Magento module that implements Univeral Analytics Ecommerce tracking
+# Google Enhanced Ecommerce for Magento
+The official extension for adding Google Universal Analytics and Enhanced Ecommerce to your Magento store.
 
+
+In case you've missed their announcements, Google has been making huge strides when it comes to analyzing eCommerce data with its relatively recent [Universal Analytics](https://support.google.com/analytics/answer/2790010?hl=en) upgrade and most recently with [Enhanced Ecommerce](https://support.google.com/analytics/answer/6014841?hl=en).
+
+By reading the Google posts from the hyperlinks above or any of the numerous articles available online, you should quickly and easily reach the conclusion that if you are in the business of selling merchandise online, you want this.
+
+However, properly setting up your Magento site to take advantage of these offerings isn’t quick or easy, and that’s why Blue Acorn is proud to have been [chosen by our partners at Google](http://analytics.blogspot.com/2014/11/brian-gavin-diamonds-sees-60-increase.html) to build the official Magento extension that will make this integration a far more pleasant one.
+
+**Please note** that simply downloading this extension does not automatically generate an account with Google, set up your username and password, and send you your favorite latte via a Google drone (although that would be cool).
+
+You’ll still need to register with Google, which you can do by clicking [here](https://support.google.com/analytics/answer/1008015).
+
+If you already have the classic version of Google Analytics (ga.js), you will need to upgrade to Universal Analytics **BEFORE** downloading this extension in order to have data continuity. You can find information on how to do that by clicking [here](https://developers.google.com/analytics/devguides/collection/upgrade/).
+
+If you're lucky enough to be building out a clean slate implementation of Magento and you have not yet installed any analytics scripts, just go ahead and install this extension, then smile.
+
+Please [email Blue Acorn](mailto:modulesupport@blueacorn.com) with any support questions you may have or visit the [Github page](github.com/BlueAcornInc/UniversalAnalytics).
 
 Changelog
 ---------
