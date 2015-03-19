@@ -2,7 +2,7 @@
 <config>
     <modules>
         <BlueAcorn_UniversalAnalytics>
-            <version>0.5.3</version>
+            <version>0.5.4</version>
         </BlueAcorn_UniversalAnalytics>
     </modules>
     <global>
@@ -35,6 +35,16 @@
 		    </baua>
 		</observers>
 	    </catalog_product_load_after>
+
+	    <catalog_product_collection_load_before>
+		<observers>
+		    <baua>
+			<type>model</type>
+			<class>baua/observer</class>
+			<method>viewProductBeforeCollection</method>
+		    </baua>
+		</observers>
+	    </catalog_product_collection_load_before>
 
 	    <catalog_product_collection_load_after>
 		<observers>
@@ -201,5 +211,3 @@
         </baua>
     </default>
 </config>
-
-

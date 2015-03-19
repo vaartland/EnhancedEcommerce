@@ -36,7 +36,22 @@ class BlueAcorn_UniversalAnalytics_Model_Observer extends Mage_Core_Model_Observ
         $registryName = self::registryName . $name;
         Mage::unregister($registryName);
     }
-    
+
+    /**
+     * Before main entry point when loading a product collection.
+     * Ensures attributes are added to the collection.
+     *
+     * @name viewProductCollection
+     * @param observer $observer
+     */
+    public function viewProductBeforeCollection($observer) {
+        $attributes = $this->helper->getTranslationAttributes('addProduct', 'removeproduct', 'addImpression' );
+
+        foreach ($attributes as $attribute) {
+            $observer->getCollection()->addAttributeToSelect($attribute);
+        }
+    }
+
     /**
      * Main entry point when loading a product collection. Generates a
      * $listName and then passes the products to the monitor to be

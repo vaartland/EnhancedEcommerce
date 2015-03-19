@@ -2,18 +2,18 @@
 
 class BlueAcorn_UniversalAnalytics_Model_Monitor {
 
-    private $productImpressionList = Array();
-    private $promoImpressionList   = Array();
+    protected $productImpressionList = Array();
+    protected $promoImpressionList   = Array();
 
-    private $quoteList = Array();
+    protected $quoteList = Array();
 
-    private $productAttributeValueList = Array();
+    protected $productAttributeValueList = Array();
 
-    private $exclusionList = Array();
+    protected $exclusionList = Array();
 
-    private $action = null;
+    protected $action = null;
 
-    private $helper;
+    protected $helper;
 
     /**
      * Constructor, sets up a shortcut variable for the main helper
@@ -96,12 +96,15 @@ class BlueAcorn_UniversalAnalytics_Model_Monitor {
      * @return array
      */
     public function generateProductData($item) {
+        $orderOptions = Array();
         $product = Mage::getModel('catalog/product')->load($item->getProductId());
 
         if ($product->getVisibility() == 1) return null;
 
         $productOptions = $item->getProductOptions();
-        $orderOptions = $item->getProduct()->getTypeInstance(true)->getOrderOptions($item->getProduct());
+        if ( is_object($item->getProduct()) ) {
+            $orderOptions = $item->getProduct()->getTypeInstance(true)->getOrderOptions($item->getProduct());
+        }
 
         $productData      = $this->parseObject($product, 'addProduct');
         $itemData         = $this->parseObject($item, 'addProduct');
