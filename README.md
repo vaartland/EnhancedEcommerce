@@ -21,7 +21,7 @@ Please [email Blue Acorn](mailto:modulesupport@blueacorn.com) with any support q
 Changelog
 ---------
 
-**V0.5.4 - 2/25/2014**
+**V0.5.4 - 3/19/2014**
 - Minor bugfixes
 - Added a composer file for the module
 - Changed private methods in Monitor class to protected
