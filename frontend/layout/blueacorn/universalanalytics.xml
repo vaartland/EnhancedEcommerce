@@ -25,7 +25,7 @@
             </action>
         </reference>
     </default>
-    <checkout_onepage_index>
+    <gomage_checkout_onepage_index>
         <reference name="before_body_end" before="-">
             <block type="core/template" name="universalanalytics_checkout" as="universalanalytics_checkout"
                 template="blueacorn/universalanalytics/onestepcheckout.phtml">
@@ -34,7 +34,7 @@
 		</action>
 	    </block>
         </reference>
-    </checkout_onepage_index>
+    </gomage_checkout_onepage_index>
     <checkout_onepage_success>
         <reference name="before_body_end" before="-">
             <block type="core/template" name="universalanalytics_success" as="universalanalytics_success"
