@@ -1,5 +1,5 @@
 {
-    "name": "blueacorn/universalanalytics",
+    "name": "vaartland/enhancedecommerce",
     "description": "A Magento module that implements Univeral Analytics Ecommerce tracking",
     "keywords": ["magento", "analytics", "google"],
     "type": "magento-module",
